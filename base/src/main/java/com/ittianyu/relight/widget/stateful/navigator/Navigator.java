@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
 
+import com.ittianyu.relight.lib.R;
 import com.ittianyu.relight.utils.StateUtils;
 import com.ittianyu.relight.widget.native_.FrameWidget;
 import com.ittianyu.relight.widget.stateful.StatefulWidget;
@@ -17,8 +18,8 @@ import java.util.WeakHashMap;
 
 public abstract class Navigator extends StatefulWidget<FrameLayout, FrameWidget> {
     protected static final Map<String, Navigator> map = new WeakHashMap<>();
-    protected static final int DEFAULT_PUSH_ANIM = android.R.anim.slide_in_left;
-    protected static final int DEFAULT_POP_ANIM = android.R.anim.slide_out_right;
+    protected static final int DEFAULT_PUSH_ANIM = R.anim.slide_in_from_right;//android.R.anim.slide_in_left;
+    protected static final int DEFAULT_POP_ANIM = R.anim.slide_out_to_right;//android.R.anim.slide_out_right;
 
     protected Map<String, Route> routeMap = new HashMap<>();
     protected String name;
@@ -73,7 +74,6 @@ public abstract class Navigator extends StatefulWidget<FrameLayout, FrameWidget>
     public void push(String path) {
         push(path, DEFAULT_PUSH_ANIM);
     }
-
     public void push(String path, Integer animRes) {
         Route route = getRoute(path);
         push(route, animRes);

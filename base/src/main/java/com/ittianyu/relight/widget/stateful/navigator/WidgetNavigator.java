@@ -140,13 +140,11 @@ public class WidgetNavigator extends Navigator {
     }
 
     public void push(Widget widget) {
-        push(widget, DEFAULT_PUSH_ANIM);
+        push(widget,null);
     }
-
-    public void push(Widget widget, Integer animRes) {
-        push(widget, animRes, null);
+    public <T> void push(Widget widget,Runnable1<T> callback) {
+        push(widget, DEFAULT_PUSH_ANIM, callback);
     }
-
 
     @Override
     public void push(Route route, Integer animRes) {

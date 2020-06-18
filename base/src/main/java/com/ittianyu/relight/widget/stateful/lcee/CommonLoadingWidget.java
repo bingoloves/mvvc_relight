@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import com.ittianyu.relight.lib.R;
 import com.ittianyu.relight.widget.native_.BaseAndroidWidget;
 import com.ittianyu.relight.widget.native_.FrameWidget;
 import com.ittianyu.relight.widget.stateless.StatelessWidget;
@@ -33,6 +34,9 @@ public class CommonLoadingWidget extends StatelessWidget<FrameLayout, FrameWidge
             @Override
             protected void initProps() {
                 layoutGravity = Gravity.CENTER;
+                ProgressBar progressBar = this.view;
+                progressBar.setIndeterminateDrawable(context.getResources().getDrawable(R.drawable.loading));
+                progressBar.setIndeterminate(true);//不断的旋转
             }
         };
     }
